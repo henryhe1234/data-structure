@@ -8,21 +8,21 @@ class Stack {
   push = (element) => {
     this.items.push(element);
   }
-  pop = (element) => {
+  pop (){
     return this.items.pop();
   }
 
-  peek = () => {
+  peek () {
     return this.items[this.items.length - 1];
   }
 
-  isEmpty = () => {
+  isEmpty () {
     return this.items.length === 0;
   }
-  size = () => {
+  size (){
     return this.items.length;
   }
-  toString = () => {
+  toString (){
     return this.items.join(" ");
   }
 
