@@ -21,20 +21,40 @@ class Graph {
       console.log(i + " -> " + conc);
     }
   }
-  DFSUtil(start,visited){
+  DFSUtil(start, visited) {
     visited[start] = true;
     console.log(start);
 
     let get_neighbours = this.AdjList.get(start);
-    for(let i of get_neighbours){
-      if(!visited[i]){
-        this.DFSUtil(i,visited);
+    for (let i of get_neighbours) {
+      if (!visited[i]) {
+        this.DFSUtil(i, visited);
       }
     }
   }
   dfs(start) {
     let visited = {};
     this.DFSUtil(start, visited);
+  }
+  bfs(start){
+    let visited = {};
+    this.BFSUtil(start,visited);
+  }
+  BFSUtil(start,visited){
+    let queue = [];
+    visited[start] = true;
+    queue.push(start);
+    while(queue.length !== 0){
+      let queueElement = queue.shift();
+      console.log(queueElement);
+      let get_List = this.AdjList.get(queueElement);
+      for(let i of get_List){
+        if(!visited[i]){
+          visited[i] = true;
+          queue.push(i);
+        }
+      }
+    }
   }
 
 }
@@ -65,4 +85,4 @@ g.addEdge('C', 'F');
 // E -> A D F C
 // F -> E C
 g.printGraph();
-g.dfs('A');
+g.bfs('A');
