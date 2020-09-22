@@ -1,4 +1,5 @@
 class Graph {
+  
   constructor(num) {
     this.numOfVertices = num;
     this.AdjList = new Map();
