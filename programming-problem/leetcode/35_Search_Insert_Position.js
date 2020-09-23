@@ -23,3 +23,23 @@ var searchInsert = function(nums, target) {
   
   
 };
+
+//binary search method
+var searchInsert1 = function(nums, target) {
+  let low = 0;
+  let high = nums.length -1;
+  while(low <= high){
+      let mid = Math.floor((low+high)/2);
+      if(nums[mid] === target){
+          return mid;
+      }else if(nums[mid] < target){//right part of the array
+          low = mid +1;
+      }else{
+          high = mid -1;
+      }
+  }
+  return low;
+  
+  
+  
+};
